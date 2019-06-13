@@ -37,14 +37,14 @@
 
   <!-- 增加一个源，用来从github上获取jar包 -->
   <repositories>
-    <repository>
-      <!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id
-      就会覆盖中央仓库的配置 -->
-      <id>releases</id>
-      <name>releases</name>
-      <url>http://172.24.8.209:8282/nexus/content/repositories/releases</url>
-      <layout>default</layout>
-    </repository>
+<!--    <repository>-->
+<!--      &lt;!&ndash; Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id-->
+<!--      就会覆盖中央仓库的配置 &ndash;&gt;-->
+<!--      <id>releases</id>-->
+<!--      <name>releases</name>-->
+<!--      <url>http://172.24.8.209:8282/nexus/content/repositories/releases</url>-->
+<!--      <layout>default</layout>-->
+<!--    </repository>-->
 
     <repository>
       <id>Dcm4Che</id>
