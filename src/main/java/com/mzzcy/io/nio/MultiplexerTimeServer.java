@@ -20,6 +20,7 @@ public class MultiplexerTimeServer implements Runnable {
     private ServerSocketChannel socketChannel;
     private volatile boolean stop;
 
+    // 初始化多路复用器，绑定监听端口
     public MultiplexerTimeServer(int port) {
         try {
             selector = Selector.open();
@@ -65,6 +66,7 @@ public class MultiplexerTimeServer implements Runnable {
                 t.printStackTrace();
             }
         }
+        //多路复用器关闭后，所有注册在上面的Channel 和 Pipe等资源都会被自动去注册并关闭，所以不需要重复释放资源
         if (selector != null) {
             try {
                 selector.close();
@@ -77,6 +79,7 @@ public class MultiplexerTimeServer implements Runnable {
 
     private void handleInput(SelectionKey key) throws IOException {
         if (key.isValid()) {
+            //处理新接入的请求信息
             if (key.isAcceptable()) {
                 //Accept the new connection
                 ServerSocketChannel ssc = (ServerSocketChannel)key.channel();
