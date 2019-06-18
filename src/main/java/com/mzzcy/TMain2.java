@@ -26,26 +26,23 @@ public class TMain2 {
   public static void main(String[] args) {
     final IMediaWriter writer = ToolFactory.makeWriter(OUTPUT_FILE);
     screenBounds = Toolkit.getDefaultToolkit().getScreenSize();
-    writer.addVideoStream(0, 0, ICodec.ID.CODEC_ID_MP4ALS,
+    writer.addVideoStream(0, 0, ICodec.ID.CODEC_ID_H264,
         screenBounds.width / 2, screenBounds.height / 2);
+
+    long nextFrameTime = 0;
+    final long frameRate =25/1000;
     long startTime = System.nanoTime();
 
     for (int index = 1; index <= 100; index++) {
 
       BufferedImage bgrScreen = getVideoImage();
-      System.out.println("time stamp = "+ (System.nanoTime() - startTime));
       bgrScreen = convertToType(bgrScreen, BufferedImage.TYPE_3BYTE_BGR);
       // encode the image to stream #0
       //writer.encodeVideo(0, bgrScreen, (System.nanoTime() - startTime)/2,TimeUnit.NANOSECONDS);
       // encode the image to stream #0
-      writer.encodeVideo(0, bgrScreen, System.nanoTime() - startTime,
-          TimeUnit.NANOSECONDS);
+      writer.encodeVideo(0, bgrScreen, 300*index, TimeUnit.MILLISECONDS);
       // sleep for frame rate milliseconds
-      try {
-        Thread.sleep((long) (100));
-      } catch (InterruptedException e) {
-        // ignore
-      }
+      nextFrameTime += frameRate;
     }
     writer.close();
   }
