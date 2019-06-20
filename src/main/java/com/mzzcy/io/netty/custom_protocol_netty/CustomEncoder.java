@@ -1,4 +1,4 @@
-package com.mzzcy.io.custom_protocol_netty;
+package com.mzzcy.io.netty.custom_protocol_netty;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -11,8 +11,8 @@ public class CustomEncoder extends MessageToByteEncoder<CustomDate> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, CustomDate msg, ByteBuf out) throws Exception {
-        out.writeInt(msg.getHead_Date());
-        out.writeInt(msg.getContentLength());
-        out.writeBytes(msg.getConctent());
+//        out.writeInt(msg.getHead_Date());
+//        out.writeInt(msg.getContentLength());
+//        out.writeBytes(msg.getConctent());
     }
 }
