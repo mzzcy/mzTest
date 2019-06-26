@@ -11,7 +11,7 @@ import java.net.Socket;
  */
 public class TimeClient {
     public static void main(String[] args) {
-        int port = 9090;
+        int port = 8080;
         Socket socket = null;
         BufferedReader in = null;
         PrintWriter out = null;
