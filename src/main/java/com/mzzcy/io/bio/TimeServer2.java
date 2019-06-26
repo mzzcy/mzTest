@@ -18,7 +18,7 @@ public class TimeServer2 {
 
       while (true) {
         socket = server.accept();
-        new Thread(new TimeServerHandler(socket)).start();
+        executePool.execute(new TimeServerHandler(socket));
 
       }
     } finally {
