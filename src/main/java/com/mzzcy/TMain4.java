@@ -5,6 +5,7 @@ import static org.bytedeco.opencv.helper.opencv_imgcodecs.cvLoadImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.Function;
 import org.bytedeco.ffmpeg.global.avcodec;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
 import org.bytedeco.javacv.OpenCVFrameConverter;
@@ -15,21 +16,12 @@ import org.bytedeco.javacv.OpenCVFrameConverter;
 public class TMain4 {
     public static void main(String []args)
     {
-        Scanner s=new Scanner(System.in);
-        System.out.println("Enter the directory path of images (for eg c:\\test)");
-        String imgPath=s.nextLine();
-        System.out.println("Enter the directory with video file name where resulting video will be saved (for eg c:\\test\\abc.mp4)");
-        String vidPath=s.nextLine();
-        ArrayList<String> links = new ArrayList<>();
-        File f=new File(imgPath);
-        File[] f2=f.listFiles();
-        for(File f3:f2)
-        {
-            links.add(f3.getAbsolutePath());
-        }
-        convertJPGtoMovie(links, vidPath);
-        System.out.println("Video has been created at "+vidPath);
-        s.close();
+        Function<Integer,Integer> A=i->i+1;
+        Function<Integer,Integer> B=i->i*i;
+        System.out.println("F1:"+B.apply(A.apply(5)));
+        System.out.println("F1:"+B.compose(A).apply(5));
+        System.out.println("F2:"+A.apply(B.apply(5)));
+        System.out.println("F2:"+B.andThen(A).apply(5));
     }
     public static void convertJPGtoMovie(ArrayList<String> links, String vidPath)
     {

@@ -10,12 +10,33 @@ import java.util.concurrent.TimeUnit;
  */
 public class TMain3 {
 
-  public static void main(String[] args) {
-    for (int i = 0; i < 12; i++) {
-      if (i % 2 == 1) {
-        continue;
-      }
-System.out.println(i);
+    public static void main(String[] args) {
+//        int oldCapacity = Integer.MAX_VALUE - 16;
+//        System.out.println(oldCapacity);
+//        int minCapacity = Integer.MAX_VALUE - 15;
+//        int maxSize = Integer.MAX_VALUE - 8;
+//        int newCapacity = oldCapacity + (oldCapacity >> 1);
+//
+//        if (newCapacity - minCapacity < 0) {
+//            newCapacity = minCapacity;
+//        }
+//        if (newCapacity - maxSize > 0) {
+//            newCapacity = hugeCapacity(minCapacity);
+//        }
+//        // minCapacity is usually close to size, so this is a win:
+//        System.out.println(newCapacity);
+
+        Object[] a = {};
+        Object[] b ={};
+        System.out.println(a == b);
     }
-  }
+
+    private static int hugeCapacity(int minCapacity) {
+        if (minCapacity < 0) // overflow
+        {
+            throw new OutOfMemoryError();
+        }
+        return (minCapacity > Integer.MAX_VALUE - 8) ? Integer.MAX_VALUE : Integer.MAX_VALUE - 8;
+    }
+
 }
