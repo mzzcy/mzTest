@@ -1,4 +1,4 @@
-package com.mzzcy.io.custom_protocol_netty;
+package com.mzzcy.io.netty.custom_protocol_netty;
 
 /**
  * @author changyin.zhao on 6/19/19

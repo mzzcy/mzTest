@@ -1,4 +1,4 @@
-package com.mzzcy.io.custom_protocol_netty;
+package com.mzzcy.io.netty.custom_protocol_netty;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -12,7 +12,7 @@ public class ServerHandlerInitializer extends ChannelInitializer<Channel> {
     @Override
     protected void initChannel(Channel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        pipeline.addLast(new CustomDecoder());
+        pipeline.addLast(new CustomDecoder2());
         pipeline.addLast(new CustomEncoder());
         pipeline.addLast(new ServerHandler());
 

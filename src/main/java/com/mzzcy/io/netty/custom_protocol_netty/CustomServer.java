@@ -1,4 +1,4 @@
-package com.mzzcy.io.custom_protocol_netty;
+package com.mzzcy.io.netty.custom_protocol_netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -31,7 +31,7 @@ public class CustomServer {
     }
 
     public static void main(String[] args) throws Exception {
-        int port = 8080;
+        int port = 9090;
         new CustomServer().bind(port);
     }
 }
