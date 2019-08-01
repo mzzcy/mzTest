@@ -12,16 +12,17 @@ import java.util.Date;
  */
 public class TMain4 {
 
-    public static void main(String[] args) {
-        long time = System.currentTimeMillis();
-        Date d = new Date(time);
-        Timestamp t = new Timestamp(time);
-        t.setNanos(123456789);
-        System.out.println(d);
-        System.out.println(t);
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss'.'");
-        NumberFormat nf = new DecimalFormat("000000000");
-        System.out.println(df.format(t.getTime()));
-        System.out.println(nf.format(t.getNanos()));
+
+    public static void main(String[] args)
+    {
+        outer:for(int i = 0 ; i<3; i++)
+        { // i= 0;  i =1 i=2 3
+            inner:for(int j = 0 ; j<2 ; j++)
+            { //j=0
+                System.out.println("hello"); //1 2 3
+                continue outer;
+            }
+        }
     }
+
 }
