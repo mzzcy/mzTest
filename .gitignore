@@ -19,3 +19,4 @@ logs
 # pytho
 venv
 __pycache__
+*.hprof
