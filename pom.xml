@@ -11,6 +11,7 @@
   <modules>
     <module>MyBatisDemo</module>
     <module>servlet</module>
+    <module>Springt01</module>
   </modules>
 
 
